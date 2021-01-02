@@ -9,6 +9,9 @@ mongoose.connect('mongodb://localhost/expense', {
   useUnifiedTopology: true
   // useFindAndModify: false
 })
+const db = mongoose.connection
+db.on('error', () => { console.log('mongodb error!') })
+db.once('open', () => { console.log('mongodb connected!') })
 
 // setting view engine use it in main.hbs
 app.engine('hbs', exphbs({ defaultLaybout: 'main', extname: '.hbs' }))

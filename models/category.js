@@ -11,10 +11,10 @@ const categorySchema = new Schema({
     trim: true,
     required: true
   },
-  records: {
+  records: [{
     type: Schema.Types.ObjectId,
     ref: 'Record'
-  }
+  }]
 })
 
 module.exports = mongoose.model('Category', categorySchema)

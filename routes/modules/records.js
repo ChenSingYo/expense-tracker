@@ -3,16 +3,43 @@ const express = require('express')
 const router = express.Router()
 
 // 引用 Data model
-// const Category = require('../../models/category')
+const Category = require('../../models/category')
 const Record = require('../../models/record')
 
 // delete new record router
-router.delete('/:id', (req, res) => {
+router.delete('/:_id', (req, res) => {
   const id = req.params.id
-  return Record.findById(id)
-    .then(record => record.remove())
-    .then(() => res.redirect('/'))
-    .catch(error => console.log(error))
+  Record.findOneAndDelete({ id })
+    .then(record => {
+      // req.flash('success_msg', `[${record.name}] already deleted!`)
+      res.redirect('/')
+    })
+    .catch(error => console.error(error))
+})
+
+// route to 'new' page
+router.get('/new', (req, res) => {
+  Category.find()
+    .lean()
+    .sort({ _id: 'asc' })
+    .then(categories => res.render('new', { categories }))
+    .catch(error => console.error(error))
+})
+
+// route to create new data
+router.post('/new', (req, res) => {
+  const record = req.body
+  Category.findOne({ title: record.category })
+    .then(category => {
+      record.category = category._id
+      Record.create(record)
+        .then(
+          // req.flash('success_msg', `[${record.name}] created successfully!`)
+          res.redirect('/')
+        )
+        .catch(error => console.error(error))
+    })
+    .catch(error => console.error(error))
 })
 
 module.exports = router

@@ -17,21 +17,23 @@
 
   <!-- navigation -->
 <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-  <a class="navbar-brand mb-0 h1 text-light" href="#"><i class="fas fa-file-invoice-dollar"></i> Expense Tracker</a>
+  <a class="navbar-brand mb-0 h1 text-light" href="/"><i class="fas fa-file-invoice-dollar"></i> Expense Tracker</a>
   <div class="collapse navbar-collapse">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">Home</a>
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" href="/records/new">Record+</a>
       </li>
     </ul>
-    <a class="btn btn-secondary" href="/record/new">New</a>
   </div>
 </nav>
 
   <main>
- <!-- index.handlebars -->
+ <!-- other.handlebars -->
     {{{ body }}}
- <!-- index.handlebars -->
+ <!-- other.handlebars -->
   </main>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

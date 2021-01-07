@@ -1,37 +1,49 @@
 const Record = require('../record')
-const Category = require('../category')
 const db = require('../../config/mongoose')
 
-function createRecords () {
-  Category.find()
-    .then(categories => {
-      const categoriesId = []
-      categories.forEach(category => {
-        categoriesId.push(category._id)
-      })
-      return categoriesId
-    })
-    .then(categoriesId => {
-      for (let i = 0; i < 5; i++) {
-        Record.create({
-          name: `record-${i}`,
-          category: categoriesId[i],
-          date: `2021-01-0${i + 1}`,
-          amount: (i + 1) * 1000
-        })
-          .then(record => {
-            Category.findById(categoriesId[i])
-              .then(category => {
-                category.records.push(record._id)
-                category.save()
-              })
-          })
-      }
-    })
-    .catch(error => console.error(error))
-}
-
 db.once('open', () => {
-  createRecords()
-  console.log('getting recordSeeder!')
+  const promises = []
+  promises.push(
+    Record.create(
+      {
+        name: 'buy lunch',
+        category: '餐飲食品',
+        date: '2020-11-08',
+        amount: 100,
+        icon: '<i class="fas fa-utensils"></i>'
+      },
+      {
+        name: 'go to gym',
+        category: '休閒娛樂',
+        date: '2020-11-06',
+        amount: 200,
+        icon: '<i class="fas fa-grin-beam"></i>'
+      },
+      {
+        name: 'take bus',
+        category: '交通出行',
+        date: '2020-11-05',
+        amount: 15,
+        icon: '<i class="fas fa-shuttle-van"></i>'
+      },
+      {
+        name: 'paying rental fee',
+        category: '家居物業',
+        date: '2020-11-05',
+        amount: 28000,
+        icon: '<i class="fas fa-home"></i>'
+      },
+      {
+        name: 'taking lession',
+        category: '其他',
+        date: '2020-11-03',
+        amount: 990,
+        icon: '<i class="fas fa-pen"></i>'
+      }
+    )
+  )
+  Promise.all(promises).then(() => {
+    console.log('getting record seeds.')
+    db.close()
+  })
 })

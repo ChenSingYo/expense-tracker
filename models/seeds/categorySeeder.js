@@ -16,5 +16,5 @@ db.once('open', () => {
     .then(() => {
       db.close()
     })
-  console.log('getting categorySeeder!')
+  console.log('getting category seeds.')
 })

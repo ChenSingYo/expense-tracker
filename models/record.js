@@ -7,8 +7,8 @@ const recordSchema = new Schema({
     required: true
   },
   category: {
-    type: Schema.Types.ObjectId,
-    ref: 'Category'
+    type: String,
+    required: true
   },
   date: {
     type: String,
@@ -18,6 +18,9 @@ const recordSchema = new Schema({
     type: Number,
     min: [1, 'minimum value is 1'],
     required: true
+  },
+  icon: {
+    type: String
   }
 })
 

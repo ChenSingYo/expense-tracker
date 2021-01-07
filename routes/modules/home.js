@@ -13,7 +13,6 @@ router.get('/', (req, res) => {
     .sort({ _id: 'asc' })
     .then(Categories => {
       Record.find()
-        .populate('category')
         .lean()
         .sort({ _id: 'asc' })
         .then(records => {

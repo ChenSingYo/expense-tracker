@@ -6,8 +6,12 @@ const routes = require('./routes')
 const PORT = process.env.PORT || 3000
 require('./config/mongoose')
 
+// import handlebars 'is' helper
+const helpers = require('handlebars-helpers')()
+const helperIs = helpers.is()
+
 // setting view engine use it in main.hbs
-app.engine('hbs', exphbs({ defaultLaybout: 'main', extname: '.hbs' }))
+app.engine('hbs', exphbs({ helpers: helperIs, defaultLaybout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
 // use express-req-parser

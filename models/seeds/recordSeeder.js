@@ -37,7 +37,7 @@ db.once('open', () => {
         name: 'taking lession',
         category: '其他',
         date: '2020-11-03',
-        amount: 990,
+        amount: 1990,
         icon: '<i class="fas fa-pen"></i>'
       }
     )

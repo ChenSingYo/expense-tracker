@@ -43,8 +43,7 @@ router.put('/:_id', (req, res) => {
     .then(category => {
       update.icon = category.icon
       Record.findOneAndUpdate({ _id }, update, { new: true })
-        .then(record => {
-          console.log(record)
+        .then(() => {
           res.redirect('/')
         })
         .catch(error => console.error(error))

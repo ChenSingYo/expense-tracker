@@ -6,15 +6,6 @@ const router = express.Router()
 const Categories = require('../../models/category')
 const Record = require('../../models/record')
 
-// route to 'new' page
-router.get('/new', (req, res) => {
-  Categories.find()
-    .lean()
-    .sort({ _id: 'asc' })
-    .then(categories => res.render('new', { categories }))
-    .catch(error => console.error(error))
-})
-
 // route to create new data
 router.post('/new', (req, res) => {
   const newRecord = req.body

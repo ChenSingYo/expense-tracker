@@ -112,12 +112,12 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <big class="modal-body">
-        確定要刪除 <strong>{{this.name}}</strong> 嗎？
+        Sure to delete "<strong>{{this.name}}</strong>" ？
       </big>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">取 消</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
         <form action="/records/{{this._id}}?_method=DELETE" method="POST">
-          <button type="submit" class="btn btn-danger">確認刪除</button>
+          <button type="submit" class="btn btn-danger">Yes</button>
         </form>
       </div>
     </div>

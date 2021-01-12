@@ -1,21 +1,25 @@
-## **CiboAdvisor**
+## Expense-Tracker
 
-CiboAdvisor - the restaurant list that includes several nice spots worth to visit in Taiwan
+---
 
-<img width="1173" alt="截圖 2020-12-31 上午12 36 35" src="https://user-images.githubusercontent.com/69234380/103368064-9910d600-4b01-11eb-92f2-3b087db4ed81.png">
+Sample expense record page
 
+[Heroku Demo](https://singyo-expense-tracker.herokuapp.com/)
 
 ## **Features**
 
-1. Find restaurants located in Taipei.
-2. Search restaurant by name and it's description.
-3. Show info page when certain restaurant get clicked.
-4. Add new restaurant.
-5. Edit Info of any restaurant.
-6. Delete any restaurant.
-7. Sort and show restaurants by alphabet, rating, genre.
+---
+
+- view all expense records.
+- check total amount in main page.
+- add new record.
+- edit data of record( amount, date, catagory, name).
+- delete record.
+- filter  record by one catagory, and get total amount from it.
 
 ## Prerequisites
+
+---
 
 Node.js
 
@@ -23,49 +27,57 @@ Express
 
 Express-Handlebars
 
-Handlebars-Helpers
+Mongodb + Robo 3T(optional)
 
 Mongoose
 
+Method-Override
+
 ## **Getting Started**
+
+---
 
 Clone repository to your local computer
 
 ```bash
-$ git clone https://github.com/ChenSingYo/CiboAdvisor.git
+$ git clone https://github.com/ChenSingYo/expense-tracker.git
 ```
 
-create db
+Turn on mongodb
 
 ```bash
-cd ~/mongodb/bin/
+[~] $ cd ~/mongodb/bin/
 [~/mongodb/bin] $ ./mongod --dbpath ~/mongodb-data
 ```
 
 Install [npm](https://www.npmjs.com/) and execute
 
 ```bash
-$ npm install 14.15.1
-$ npm run seed
-$ npm run start     ..will automatically run 'node app.js'
+$ npm install
+$ npm run seed      ..import catagory and record seeder
+```
+
+Execute
+
+```bash
+$ npm run start     ..automatically run 'node app.js'
 ```
 
 or
 
 ```bash
 $ npm -i nodemon
-$ npm run seed
-$ npm run dev       ..will automatically run 'nodemon app.js'
+$ npm run dev       ..automatically run 'nodemon app.js'
 ```
 
 when everything works fine:
 
-```
+```bash
 Express is listening on localhost:3000
 mongodb connected!
 ```
 
-let 's check CiboAdvisor with your Browser
+let 's check it with your Browser
 
 ```
 http://localhost:3000
@@ -73,15 +85,24 @@ http://localhost:3000
 
 ## **Built With**
 
+---
+
+Npm v7.0.15
+
 Node.js 14.15.1
+
+Nodemon 2.0.6
 
 Express 4.17.1
 
-Express-Handlebars 5.2.0
+Express Handlebars 5.2.0
 
-Handlebars-Helpers 0.10
+Mongoose: 5.11.9
 
-Mongoose v5.11.8
+Method-Override: 3.0.0
 
-## **Contributor**
-SingYo
+## Contributor
+
+---
+
+[SingYo](https://github.com/ChenSingYo)

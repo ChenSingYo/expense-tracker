@@ -11,8 +11,8 @@ router.post('/new', (req, res) => {
   const newRecord = req.body
   Categories.find({ title: `${newRecord.category}` })
     .lean()
-    .then(caterory => {
-      newRecord.icon = caterory[0].icon
+    .then(category => {
+      newRecord.icon = `<i class='fas ${category[0].icon}'></i>`
       return Record.create(newRecord)
     })
     .then(() => res.redirect('/'))
@@ -41,7 +41,7 @@ router.put('/:_id', (req, res) => {
   Categories.findOne({ title: update.category })
     .lean()
     .then(category => {
-      update.icon = category.icon
+      update.icon = `<i class='fas ${category.icon}'></i>`
       Record.findOneAndUpdate({ _id }, update, { new: true })
         .then(() => {
           res.redirect('/')

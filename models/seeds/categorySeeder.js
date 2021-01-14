@@ -1,20 +1,14 @@
 const db = require('../../config/mongoose')
 const Category = require('../category')
-const categories = [
-  ['家居物業', 'fa-home'],
-  ['交通出行', 'fa-shuttle-van'],
-  ['休閒娛樂', 'fa-grin-beam'],
-  ['餐飲食品', 'fa-utensils'],
-  ['其他', 'fa-pen']
-].map(category => ({
+const categories = require('./seeds.json').category
+categories.map(category => ({
   title: category[0],
-  icon: `<i class="fas ${category[1]}"></i>`
+  icon: category[1]
 }))
 
 db.once('open', () => {
   Category.create(categories)
-    .then(() => {
-      db.close()
-    })
+    .then(() => { db.close() })
+    .catch(error => console.log(error))
   console.log('getting category seeds.')
 })

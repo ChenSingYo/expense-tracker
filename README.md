@@ -1,14 +1,11 @@
 ## Expense-Tracker
 
----
 
 Sample expense record page
 
 [Heroku Demo](https://singyo-expense-tracker.herokuapp.com/)
 
 ## **Features**
-
----
 
 - view all expense records.
 - check total amount in main page.
@@ -18,8 +15,6 @@ Sample expense record page
 - filter  record by one catagory, and get total amount from it.
 
 ## Prerequisites
-
----
 
 Node.js
 
@@ -34,8 +29,6 @@ Mongoose
 Method-Override
 
 ## **Getting Started**
-
----
 
 Clone repository to your local computer
 
@@ -85,7 +78,6 @@ http://localhost:3000
 
 ## **Built With**
 
----
 
 Npm v7.0.15
 
@@ -102,7 +94,5 @@ Mongoose: 5.11.9
 Method-Override: 3.0.0
 
 ## Contributor
-
----
 
 [SingYo](https://github.com/ChenSingYo)
